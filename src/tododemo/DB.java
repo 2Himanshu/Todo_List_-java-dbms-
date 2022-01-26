@@ -11,7 +11,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.mysql.jdbc.ResultSetMetaData;
 import javax.swing.*;
 import java.util.Vector;
 public class DB {

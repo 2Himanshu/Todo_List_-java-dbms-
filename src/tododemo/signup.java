@@ -185,7 +185,9 @@ public class signup extends javax.swing.JFrame {
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(58, 58, 58))
         );
         layout.setVerticalGroup(
@@ -242,7 +244,7 @@ public class signup extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             		 
-                String firstName = jTextField5.getText();
+                String firstName = jTextField5.getText().trim();
                 String lastName = jTextField2.getText();
                 String emailId = jTextField3.getText();
                 String userName = jTextField1.getText();
@@ -263,7 +265,34 @@ public class signup extends javax.swing.JFrame {
                         }
                       }
                
-					PreparedStatement pst = (PreparedStatement) con.prepareStatement("insert into signup(firstname,lastname,username,password,email,phone) values(?,?,?,?,?,?)");
+                 
+                 
+                    if(firstName.equals("")){
+                    JOptionPane.showMessageDialog(null, "first name is empty");
+                    return;
+                }
+                else if(lastName.equals("")){
+                    JOptionPane.showMessageDialog(null, "last name is empty");
+                    return;
+                }
+                else if(emailId.equals("")){
+                    JOptionPane.showMessageDialog(null, "Enter email id");
+                    return;
+                }
+                else if(userName.equals("")){
+                    JOptionPane.showMessageDialog(null, "first name is empty");
+                    return;
+                }
+                else if(mobileNumber.equals("")){
+                    JOptionPane.showMessageDialog(null, "Enter mobile number");
+                    return;
+                }
+                else if(password.equals("")){
+                    JOptionPane.showMessageDialog(null, "Enter password");
+                    return;
+                }
+                else{
+                    PreparedStatement pst = (PreparedStatement) con.prepareStatement("insert into signup(firstname,lastname,username,password,email,phone) values(?,?,?,?,?,?)");
 					pst.setString(1, firstName);
 					pst.setString(2, lastName);
 					pst.setString(3, userName);
@@ -272,13 +301,14 @@ public class signup extends javax.swing.JFrame {
 					pst.setString(6, mobileNumber);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "User Registered");
-					jTextField5.setText("");
+					jTextField1.setText("");
 					jTextField2.setText("");
 					jTextField3.setText("");
-					jTextField1.setText("");
 					jTextField4.setText("");
+					jTextField5.setText("");
 					jPasswordField1.setText("");
-					
+                }
+               	
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

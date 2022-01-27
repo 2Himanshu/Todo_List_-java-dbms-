@@ -41,8 +41,18 @@ public class todo extends javax.swing.JFrame {
      */
     
     Connection con = DB.dbconnect();
-    public todo() {
+    String user;
+//    public todo(String user) {
+//        this.user = user;
+//    }
+    
+    public todo(String user) {
         initComponents();
+        this.user = user;
+    }
+
+    private todo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -67,12 +77,19 @@ public class todo extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Other task");
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel2.setText("Task Description");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 30));
 
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +97,16 @@ public class todo extends javax.swing.JFrame {
                 jTextField5ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 277, 44));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 277, 170));
+
+        jTable1.setBackground(new java.awt.Color(230, 255, 255));
+        jTable1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -93,134 +115,117 @@ public class todo extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "id", "important task", "other task"
+                "ID", "Task", "Description"
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(0, 51, 153));
+        jTable1.setRowHeight(24);
         jScrollPane2.setViewportView(jTable1);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Important task");
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 463, 330));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel4.setText("Your ToDo List:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 160, 43));
+
+        jButton2.setBackground(new java.awt.Color(0, 51, 204));
+        jButton2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Edit");
+        jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 107, 49));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(0, 51, 204));
+        jButton3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Done");
+        jButton3.setBorderPainted(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, 107, 49));
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton4.setBackground(new java.awt.Color(0, 51, 204));
+        jButton4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Add");
+        jButton4.setBorderPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 107, 49));
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton5.setBackground(new java.awt.Color(0, 51, 204));
+        jButton5.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("View");
+        jButton5.setBorderPainted(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, 107, 49));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton6.setText("delete ");
+        jButton6.setBackground(new java.awt.Color(0, 51, 204));
+        jButton6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Delete ");
+        jButton6.setBorderPainted(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 107, 49));
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton7.setBackground(new java.awt.Color(0, 51, 204));
+        jButton7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Delete All");
+        jButton7.setBorderPainted(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 110, 49));
 
-        jLabel1.setFont(new java.awt.Font("Algerian", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 204));
-        jLabel1.setText("Todo List");
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel8.setText("ToDo");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton6)
-                                        .addGap(20, 20, 20)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(66, 66, 66)))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(249, Short.MAX_VALUE))
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel5.setText("Task");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 50, 43));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 850, 10));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1020, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 570, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -236,16 +241,16 @@ public class todo extends javax.swing.JFrame {
         		
         		try {
         			String imp = jTextField5.getText();
-        			String other = jTextArea1.getText();
+        			String Description = jTextArea1.getText();
         			if(jTextField5.getText().isEmpty()) {
         				imp = df.getValueAt(s,1).toString();
         			}
         			if(jTextArea1.getText().isEmpty()) {
-        				other = df.getValueAt(s, 2).toString();
+        				Description = df.getValueAt(s, 2).toString();
         			}
-        			PreparedStatement pst = (PreparedStatement) con.prepareStatement("update todo set important = ? ,other = ? where id = ?");
+        			PreparedStatement pst = (PreparedStatement) con.prepareStatement("update todo set Task = ? ,Description = ? where id = ?");
         			pst.setString(1, imp);
-        			pst.setString(2, other);
+        			pst.setString(2, Description);
         			pst.setInt(3, id);
         			pst.execute();
         			
@@ -254,7 +259,8 @@ public class todo extends javax.swing.JFrame {
         			jTextArea1.setText("");
         			
         			int a;
-        			PreparedStatement pst1 = (PreparedStatement)con.prepareStatement("select * from todo");
+        			PreparedStatement pst1 = (PreparedStatement)con.prepareStatement("select * from todo where uName=?");
+                                pst1.setString(1, user);
         			ResultSet rs = pst1.executeQuery();
         			ResultSetMetaData rd = (ResultSetMetaData)rs.getMetaData();
         			a = rd.getColumnCount();
@@ -264,8 +270,8 @@ public class todo extends javax.swing.JFrame {
         				Vector v2 = new Vector();
         				for(int i=1;i<=a;i++) {
         					v2.add(rs.getString("id"));
-        					v2.add(rs.getString("important"));
-        					v2.add(rs.getString("other"));
+        					v2.add(rs.getString("Task"));
+        					v2.add(rs.getString("Description"));
         				}
         				dff.addRow(v2);
         			}
@@ -281,17 +287,17 @@ public class todo extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         try {
-        			
         			String imp = jTextField5.getText();
-        			String other = jTextArea1.getText();
-        			if(imp.isEmpty() && other.isEmpty()) {
+        			String Description = jTextArea1.getText();
+        			if(imp.isEmpty() && Description.isEmpty()) {
         				JOptionPane.showMessageDialog(null, "Null Values are not allowed");
         			}
         			else
         			{
-        				PreparedStatement pst = (PreparedStatement) con.prepareStatement("insert into todo(important,other) values (?,?)");
+        				PreparedStatement pst = (PreparedStatement) con.prepareStatement("insert into todo(Task,Description,uName) values (?,?,?)");
             			pst.setString(1, imp);
-            			pst.setString(2, other);
+            			pst.setString(2, Description);
+                                pst.setString(3, user);
             			pst.execute();
             			JOptionPane.showMessageDialog(null, "task Added");
         			}
@@ -301,7 +307,8 @@ public class todo extends javax.swing.JFrame {
         			jTextField5.setText("");
         			jTextArea1.setText("");
         			int a;
-        			PreparedStatement pst1 = (PreparedStatement)con.prepareStatement("select * from todo");
+        			PreparedStatement pst1 = (PreparedStatement)con.prepareStatement("select * from todo where uName=?");
+                                pst1.setString(1, user);
         			ResultSet rs = pst1.executeQuery();
         			ResultSetMetaData rd = (ResultSetMetaData)rs.getMetaData();
         			a = rd.getColumnCount();
@@ -311,8 +318,8 @@ public class todo extends javax.swing.JFrame {
         				Vector v2 = new Vector();
         				for(int i=1;i<=a;i++) {
         					v2.add(rs.getString("id"));
-        					v2.add(rs.getString("important"));
-        					v2.add(rs.getString("other"));
+        					v2.add(rs.getString("Task"));
+        					v2.add(rs.getString("Description"));
         				}
         				df.addRow(v2);
         			}
@@ -324,9 +331,11 @@ public class todo extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
                 try {
         			int a;
-        			PreparedStatement pst1 = (PreparedStatement)con.prepareStatement("select * from todo");
+        			PreparedStatement pst1 = (PreparedStatement)con.prepareStatement("select * from todo where uName=?");
+                                pst1.setString(1,user);
         			ResultSet rs = pst1.executeQuery();
-                                PreparedStatement ps = (PreparedStatement)con.prepareStatement("select * from todo");
+                                PreparedStatement ps = (PreparedStatement)con.prepareStatement("select * from todo where uName=?");
+                                ps.setString(1,user);
         			ResultSet rr = ps.executeQuery();
         			ResultSetMetaData rd = (ResultSetMetaData)rs.getMetaData();
         			a = rd.getColumnCount();
@@ -339,8 +348,8 @@ public class todo extends javax.swing.JFrame {
         				Vector v2 = new Vector();
         				for(int i=1;i<=a;i++) {
         					v2.add(rs.getString("id"));
-        					v2.add(rs.getString("important"));
-        					v2.add(rs.getString("other"));
+        					v2.add(rs.getString("Task"));
+        					v2.add(rs.getString("Description"));
         				}
         				df.addRow(v2);
         			}
@@ -360,12 +369,12 @@ public class todo extends javax.swing.JFrame {
         		
         		try {
         			String imp = jTextField5.getText();
-        			String other = jTextArea1.getText();
+        			String Description = jTextArea1.getText();
         			if(jTextField5.getText().isEmpty()) {
         				imp = df.getValueAt(s,1).toString();
         			}
         			if(jTextArea1.getText().isEmpty()) {
-        				other = df.getValueAt(s, 2).toString();
+        				Description = df.getValueAt(s, 2).toString();
         			}
         			PreparedStatement pst = (PreparedStatement) con.prepareStatement("delete from todo where id=?");
         			pst.setInt(1, id);
@@ -376,7 +385,8 @@ public class todo extends javax.swing.JFrame {
         			jTextArea1.setText("");
         			
         			int a;
-        			PreparedStatement pst1 = (PreparedStatement)con.prepareStatement("select * from todo");
+        			PreparedStatement pst1 = (PreparedStatement)con.prepareStatement("select * from todo where uName=?");
+                                pst1.setString(1, user);
         			ResultSet rs = pst1.executeQuery();
         			ResultSetMetaData rd = (ResultSetMetaData)rs.getMetaData();
         			a = rd.getColumnCount();
@@ -386,8 +396,8 @@ public class todo extends javax.swing.JFrame {
         				Vector v2 = new Vector();
         				for(int i=1;i<=a;i++) {
         					v2.add(rs.getString("id"));
-        					v2.add(rs.getString("important"));
-        					v2.add(rs.getString("other"));
+        					v2.add(rs.getString("Task"));
+        					v2.add(rs.getString("Description"));
         				}
         				dff.addRow(v2);
         			}
@@ -417,8 +427,8 @@ public class todo extends javax.swing.JFrame {
         				Vector v2 = new Vector();
         				for(int i=1;i<=a;i++) {
         					v2.add(rs.getString("id"));
-        					v2.add(rs.getString("important"));
-        					v2.add(rs.getString("other"));
+        					v2.add(rs.getString("Task"));
+        					v2.add(rs.getString("Description"));
         				}
         				df.addRow(v2);
         			}
@@ -469,11 +479,14 @@ public class todo extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField5;

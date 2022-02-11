@@ -71,6 +71,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setBackground(new java.awt.Color(230, 255, 255));
@@ -166,7 +167,7 @@ public class AdminPanel extends javax.swing.JFrame {
         });
         jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, -1, 49));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 520));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -176,7 +177,7 @@ public class AdminPanel extends javax.swing.JFrame {
         DefaultTableModel df = (DefaultTableModel)jTable1.getModel();
         int s  = jTable1.getSelectedRow();
         int id = Integer.parseInt(df.getValueAt(s, 0).toString());
-
+        
        try {
 //            String imp = jTextField1.getText();
 //            String other = jTextField1.getText();
@@ -189,6 +190,8 @@ public class AdminPanel extends javax.swing.JFrame {
             PreparedStatement pst = (PreparedStatement) con.prepareStatement("delete from signup where id=?");
             pst.setInt(1, id);
             pst.execute();
+            
+            
 
             JOptionPane.showMessageDialog(null, "Successfully deleted");
 
@@ -219,9 +222,13 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+         
         try {
             PreparedStatement pst = (PreparedStatement)con.prepareStatement("truncate table signup");
             pst.execute();
+           
+        PreparedStatement ps = (PreparedStatement) con.prepareStatement("truncate table todo");
+        ps.execute();
         }catch(Exception ec) {
             ec.printStackTrace();
         }
@@ -232,8 +239,8 @@ public class AdminPanel extends javax.swing.JFrame {
             ResultSet rs = pst1.executeQuery();
             ResultSetMetaData rd = (ResultSetMetaData)rs.getMetaData();
             a = rd.getColumnCount();
-            DefaultTableModel df = (DefaultTableModel)jTable1.getModel();
-            df.setRowCount(0);
+            DefaultTableModel dff = (DefaultTableModel)jTable1.getModel();
+            dff.setRowCount(0);
             while(rs.next()) {
                 Vector v2 = new Vector();
                 for(int i=1;i<=a;i++) {
@@ -241,7 +248,7 @@ public class AdminPanel extends javax.swing.JFrame {
                     v2.add(rs.getString("important"));
                     v2.add(rs.getString("other"));
                 }
-                df.addRow(v2);
+                dff.addRow(v2);
             }
         }catch(Exception ec) {
             ec.printStackTrace();
